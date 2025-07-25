@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4A73B99B2E335E2700267108 /* Secrets.plist.example in Resources */ = {isa = PBXBuildFile; fileRef = 4A73B99A2E335E2700267108 /* Secrets.plist.example */; };
+		4A73B99D2E335E3600267108 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A73B99C2E335E3600267108 /* Secrets.plist */; };
+		4A73B99F2E335EB200267108 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4A73B99E2E335EAC00267108 /* .gitignore */; };
+		4A73B9A12E335EC700267108 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4A73B9A02E335EC200267108 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		4A73B9782E335CC900267108 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,25 +31,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A73B9692E335CC600267108 /* StockPriceCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockPriceCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A73B9772E335CC900267108 /* StockPriceCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockPriceCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A73B9812E335CC900267108 /* StockPriceCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockPriceCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A73B9772E335CC900267108 /* StockPriceCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = StockPriceCalculatorTests.xctest; path = /Users/eugeneichinose/src/StockPriceCalculator/build/Debug/StockPriceCalculator.app/Contents/PlugIns/StockPriceCalculatorTests.xctest; sourceTree = "<absolute>"; };
+		4A73B9812E335CC900267108 /* StockPriceCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = StockPriceCalculatorUITests.xctest; path = "/Users/eugeneichinose/src/StockPriceCalculator/build/Debug/StockPriceCalculatorUITests-Runner.app/Contents/PlugIns/StockPriceCalculatorUITests.xctest"; sourceTree = "<absolute>"; };
+		4A73B99A2E335E2700267108 /* Secrets.plist.example */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Secrets.plist.example; sourceTree = "<group>"; };
+		4A73B99C2E335E3600267108 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
+		4A73B99E2E335EAC00267108 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4A73B9A02E335EC200267108 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4A73B9A22E33605B00267108 /* StockPriceCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockPriceCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4A73B96B2E335CC600267108 /* StockPriceCalculator */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = StockPriceCalculator;
-			sourceTree = "<group>";
-		};
-		4A73B97A2E335CC900267108 /* StockPriceCalculatorTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = StockPriceCalculatorTests;
-			sourceTree = "<group>";
-		};
-		4A73B9842E335CC900267108 /* StockPriceCalculatorUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = StockPriceCalculatorUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,21 +76,13 @@
 		4A73B9602E335CC600267108 = {
 			isa = PBXGroup;
 			children = (
+				4A73B9A02E335EC200267108 /* README.md */,
+				4A73B99E2E335EAC00267108 /* .gitignore */,
 				4A73B96B2E335CC600267108 /* StockPriceCalculator */,
-				4A73B97A2E335CC900267108 /* StockPriceCalculatorTests */,
-				4A73B9842E335CC900267108 /* StockPriceCalculatorUITests */,
-				4A73B96A2E335CC600267108 /* Products */,
+				4A73B99A2E335E2700267108 /* Secrets.plist.example */,
+				4A73B99C2E335E3600267108 /* Secrets.plist */,
+				4A73B9A22E33605B00267108 /* StockPriceCalculator.app */,
 			);
-			sourceTree = "<group>";
-		};
-		4A73B96A2E335CC600267108 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4A73B9692E335CC600267108 /* StockPriceCalculator.app */,
-				4A73B9772E335CC900267108 /* StockPriceCalculatorTests.xctest */,
-				4A73B9812E335CC900267108 /* StockPriceCalculatorUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -114,7 +107,7 @@
 			packageProductDependencies = (
 			);
 			productName = StockPriceCalculator;
-			productReference = 4A73B9692E335CC600267108 /* StockPriceCalculator.app */;
+			productReference = 4A73B9A22E33605B00267108 /* StockPriceCalculator.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4A73B9762E335CC900267108 /* StockPriceCalculatorTests */ = {
@@ -129,9 +122,6 @@
 			);
 			dependencies = (
 				4A73B9792E335CC900267108 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				4A73B97A2E335CC900267108 /* StockPriceCalculatorTests */,
 			);
 			name = StockPriceCalculatorTests;
 			packageProductDependencies = (
@@ -153,9 +143,6 @@
 			dependencies = (
 				4A73B9832E335CC900267108 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				4A73B9842E335CC900267108 /* StockPriceCalculatorUITests */,
-			);
 			name = StockPriceCalculatorUITests;
 			packageProductDependencies = (
 			);
@@ -175,6 +162,7 @@
 				TargetAttributes = {
 					4A73B9682E335CC600267108 = {
 						CreatedOnToolsVersion = 16.4;
+						LastSwiftMigration = 1640;
 					};
 					4A73B9762E335CC900267108 = {
 						CreatedOnToolsVersion = 16.4;
@@ -196,7 +184,7 @@
 			mainGroup = 4A73B9602E335CC600267108;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 4A73B96A2E335CC600267108 /* Products */;
+			productRefGroup = 4A73B9602E335CC600267108;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -212,6 +200,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A73B99F2E335EB200267108 /* .gitignore in Resources */,
+				4A73B99B2E335E2700267108 /* Secrets.plist.example in Resources */,
+				4A73B9A12E335EC700267108 /* README.md in Resources */,
+				4A73B99D2E335E3600267108 /* Secrets.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,11 +382,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = StockPriceCalculator/StockPriceCalculator.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UV5S53QDFW;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -418,6 +412,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				XROS_DEPLOYMENT_TARGET = 2.5;
@@ -429,11 +424,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = StockPriceCalculator/StockPriceCalculator.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UV5S53QDFW;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
