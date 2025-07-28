@@ -14,10 +14,10 @@ class StockAPI {
 
     private let host = "yh-finance.p.rapidapi.com"
 
-    func fetchStockPrice(for symbol: String, completion: @escaping (Double?, Date?, Bool, Bool) -> Void) {
+    func fetchStockPrice(for symbol: String, completion: @escaping (Double?, Date?, Date?, Bool, Bool) -> Void) {
         let urlString = "https://yh-finance.p.rapidapi.com/market/v2/get-quotes?region=US&symbols=\(symbol)"
         guard let url = URL(string: urlString) else {
-            completion(nil, nil, false, false)
+            completion(nil, nil, nil, false, false)
             return
         }
 
@@ -25,7 +25,7 @@ class StockAPI {
         request.setValue(host, forHTTPHeaderField: "x-rapidapi-host")
         request.setValue(apiKey, forHTTPHeaderField: "x-rapidapi-key")
 
-        print("\n\u{1F4E4} Full Request:")
+        print("\n📤 Full Request:")
         print("URL: \(urlString)")
         print("Headers:")
         print("x-rapidapi-host: \(host)")
@@ -34,7 +34,7 @@ class StockAPI {
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 print("Network error: \(error?.localizedDescription ?? "Unknown error")")
-                completion(nil, nil, false, false)
+                completion(nil, nil, nil, false, false)
                 return
             }
 
@@ -48,14 +48,17 @@ class StockAPI {
                 }
 
                 if httpResponse.statusCode == 401 {
-                    completion(nil, nil, false, true)
+                    completion(nil, nil, nil, false, true)
                 } else {
-                    completion(nil, nil, false, false)
+                    completion(nil, nil, nil, false, false)
                 }
                 return
             }
 
             do {
+                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                    print("\n📝 Stock Price Response:\n\(json)")
+                }
                 if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
                    let quoteResponse = json["quoteResponse"] as? [String: Any],
                    let results = quoteResponse["result"] as? [[String: Any]],
@@ -63,21 +66,31 @@ class StockAPI {
                    let rawPrice = first["regularMarketPrice"] as? Double,
                    let regTime = first["regularMarketTime"] as? TimeInterval {
 
-                    let date = Date(timeIntervalSince1970: regTime)
-                    completion(rawPrice, date, true, false)
+                    let priceDate = Date(timeIntervalSince1970: regTime)
+
+                    let earningsDate: Date? = {
+                        if let ts = first["earningsTimestampStart"] as? TimeInterval {
+                            return Date(timeIntervalSince1970: ts)
+                        }
+                        return nil
+                    }()
+
+                    completion(rawPrice, priceDate, earningsDate, true, false)
                 } else {
                     print("API returned valid HTTP response but missing expected fields — likely invalid symbol")
-                    completion(nil, nil, true, false)
+                    completion(nil, nil, nil, true, false)
                 }
             } catch {
                 print("JSON parse error: \(error.localizedDescription)")
-                completion(nil, nil, false, false)
+                completion(nil, nil, nil, false, false)
             }
         }.resume()
     }
 
-    func fetchHistoricalPrices(for symbol: String, daysBack: Int, completion: @escaping (Double?, Double?, Date?, Date?) -> Void) {
-        let urlString = "https://yh-finance.p.rapidapi.com/stock/v3/get-chart?interval=1d&range=\(daysBack)d&region=US&symbol=\(symbol)"
+
+    func fetchHistoricalPrices(for symbol: String, range: String, completion: @escaping (Double?, Double?, Date?, Date?) -> Void){
+        let urlString = "https://yh-finance.p.rapidapi.com/stock/v3/get-chart?interval=1d&range=\(range)&region=US&symbol=\(symbol)"
+        print(urlString)
         guard let url = URL(string: urlString) else {
             completion(nil, nil, nil, nil)
             return
